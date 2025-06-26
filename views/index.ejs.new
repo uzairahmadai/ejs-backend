@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/fav.svg" />
+    <title>AutoVault - Car Dealer HTML Template</title>
+    <meta name="description" content="Your trusted source for expert healthcare services and car information. Providing personalized care, advanced treatments, and reliable car dealing to help you achieve better health." />
+    <link rel="stylesheet" href="/assets/css/plugins/plugins.css" />
+    <link rel="stylesheet" href="/assets/css/plugins/magnifying-popup.css" />
+    <link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/fonts/rt-icon.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <!-- Add your content here -->
+        <section class="rts-banner-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Welcome to AutoVault</h1>
+                        <p>Your trusted source for premium vehicles</p>
+                        <a href="/about" class="rts-btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <%- include('partials/footer') %>
+
+    <!-- Scripts -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

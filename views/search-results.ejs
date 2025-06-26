@@ -1,0 +1,101 @@
+<!-- Search Results Section -->
+<div class="rts-breadcrumb-area breadcrumb-bg">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="breadcrumb-content">
+                    <h3 class="title">Search Results</h3>
+                    <p class="desc">
+                        <% if (cars.length > 0) { %>
+                            Found <%= cars.length %> cars matching your criteria
+                        <% } else { %>
+                            No cars found matching your criteria
+                        <% } %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="rts-portfolio-area rts-section-gap">
+    <div class="container">
+        <!-- Search Form -->
+        <%- include('partials/search-form', { filters: filters }) %>
+
+        <!-- Active Filters -->
+        <div class="active-filters mt-4 mb-4">
+            <% if (filters.selectedMake || filters.selectedModel || filters.selectedPrice || filters.selectedLocation || filters.selectedType) { %>
+                <h4 class="mb-3">Active Filters:</h4>
+                <div class="filter-tags">
+                    <% if (filters.selectedMake) { %>
+                        <span class="filter-tag">Make: <%= filters.selectedMake %></span>
+                    <% } %>
+                    <% if (filters.selectedModel) { %>
+                        <span class="filter-tag">Model: <%= filters.selectedModel %></span>
+                    <% } %>
+                    <% if (filters.selectedPrice) { %>
+                        <span class="filter-tag">Price: Up to $<%= filters.selectedPrice %></span>
+                    <% } %>
+                    <% if (filters.selectedLocation) { %>
+                        <span class="filter-tag">Location: <%= filters.selectedLocation %></span>
+                    <% } %>
+                    <% if (filters.selectedType) { %>
+                        <span class="filter-tag">Type: <%= filters.selectedType === 'used' ? 'Used Cars' : 'New Cars' %></span>
+                    <% } %>
+                    <a href="/search" class="clear-filters">Clear All Filters</a>
+                </div>
+            <% } %>
+        </div>
+
+        <!-- Results Grid -->
+        <div class="row g-5">
+            <% cars.forEach(car => { %>
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="project-wrapper">
+                        <div class="image-area">
+                            <a href="/portfolio-details/<%= car.slug %>">
+                                <img src="<%= car.images[0] %>" alt="<%= car.title %>">
+                            </a>
+                            <span class="tag"><%= car.tag %></span>
+                        </div>
+                        <span class="price">$<%= car.price.toLocaleString() %></span>
+                        <div class="content-area">
+                            <h5 class="title">
+                                <a href="/portfolio-details/<%= car.slug %>"><%= car.title %></a>
+                            </h5>
+                            <ul class="feature-area">
+                                <% if (car.overview) { %>
+                                    <li>
+                                        <img src="/assets/images/portfolio/feature-icon/01.svg" alt="">
+                                        <%= car.overview.mileage %>
+                                    </li>
+                                    <li>
+                                        <img src="/assets/images/portfolio/feature-icon/02.svg" alt="">
+                                        <%= car.overview.fuelType %>
+                                    </li>
+                                    <li>
+                                        <img src="/assets/images/portfolio/feature-icon/03.svg" alt="">
+                                        <%= car.overview.transmission %>
+                                    </li>
+                                <% } %>
+                            </ul>
+                            <a href="/portfolio-details/<%= car.slug %>" class="rts-btn btn-primary radius-big">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+
+        <% if (cars.length === 0) { %>
+            <div class="no-results text-center mt-5">
+                <div class="no-results-icon mb-4">
+                    <i class="fa-regular fa-face-frown fa-3x"></i>
+                </div>
+                <h4>No Cars Found</h4>
+                <p class="text-muted mb-4">Try adjusting your search criteria or browse our complete inventory</p>
+                <a href="/cars" class="rts-btn btn-primary">View All Cars</a>
+            </div>
+        <% } %>
+    </div>
+</div>

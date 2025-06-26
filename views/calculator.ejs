@@ -1,0 +1,229 @@
+<!-- Breadcrumb Area Start -->
+<div class="rts-breadcrumb-area breadcrumb-bg">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="breadcrumb-content">
+                    <h3 class="title">Car Loan Calculator</h3>
+                    <p class="desc">Calculate your estimated monthly payments</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Area End -->
+
+<!-- Calculator Section Start -->
+<div class="rts-calculator-area rts-section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="calculator-wrapper">
+                    <div class="calculator-form">
+                        <h4>Loan Calculator</h4>
+                        <form id="loanCalculatorForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Vehicle Price ($)</label>
+                                        <input type="number" id="vehiclePrice" class="form-control" value="30000" min="0">
+                                        <input type="range" id="vehiclePriceRange" class="form-range" min="0" max="100000" step="1000" value="30000">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Down Payment ($)</label>
+                                        <input type="number" id="downPayment" class="form-control" value="5000" min="0">
+                                        <input type="range" id="downPaymentRange" class="form-range" min="0" max="50000" step="500" value="5000">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt--20">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Interest Rate (%)</label>
+                                        <input type="number" id="interestRate" class="form-control" value="4.5" min="0" step="0.1">
+                                        <input type="range" id="interestRateRange" class="form-range" min="0" max="20" step="0.1" value="4.5">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Loan Term (Years)</label>
+                                        <input type="number" id="loanTerm" class="form-control" value="5" min="1" max="10">
+                                        <input type="range" id="loanTermRange" class="form-range" min="1" max="10" step="1" value="5">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="calculator-results mt--40">
+                        <h4>Loan Summary</h4>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <span class="label">Monthly Payment</span>
+                                <span class="value" id="monthlyPayment">$460.00</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Total Loan Amount</span>
+                                <span class="value" id="totalLoan">$25,000.00</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Total Interest</span>
+                                <span class="value" id="totalInterest">$2,600.00</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Total Cost</span>
+                                <span class="value" id="totalCost">$27,600.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="calculator-actions mt--30">
+                        <a href="/contact" class="rts-btn btn-primary radius-small">Get Pre-Approved</a>
+                        <button type="button" class="rts-btn btn-secondary radius-small" id="resetCalculator">Reset Calculator</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="calculator-sidebar">
+                    <!-- Information Box -->
+                    <div class="info-box">
+                        <h5>Need Help?</h5>
+                        <p>Our financial experts are here to help you understand your loan options</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <i class="rt-icon-phone-flip"></i>
+                                <div class="content">
+                                    <span>Call Us</span>
+                                    <a href="tel:+12505550199">+12505550199</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <i class="rt-icon-envelope"></i>
+                                <div class="content">
+                                    <span>Email Us</span>
+                                    <a href="mailto:autovault@gmail.com">autovault@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips Box -->
+                    <div class="tips-box mt--30">
+                        <h5>Loan Tips</h5>
+                        <ul class="tips-list">
+                            <li>Higher down payment reduces monthly payments</li>
+                            <li>Shorter loan terms mean less total interest</li>
+                            <li>Good credit score can lower interest rates</li>
+                            <li>Consider all costs including insurance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Calculator Section End -->
+
+<!-- Call To Action Section Start -->
+<div class="rts-callto-action-area bg-black">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="rts-callto-action">
+                    <h2 class="title">Ready to Apply for Financing?</h2>
+                    <p>Contact our financial experts to discuss your options</p>
+                    <div class="button-area">
+                        <a href="/contact" class="rts-btn btn-primary radius-small">Apply Now</a>
+                        <a href="/portfolio" class="rts-btn btn-white radius-small">View Cars</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Call To Action Section End -->
+
+<!-- Custom JavaScript for Calculator -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all input elements
+    const vehiclePrice = document.getElementById('vehiclePrice');
+    const vehiclePriceRange = document.getElementById('vehiclePriceRange');
+    const downPayment = document.getElementById('downPayment');
+    const downPaymentRange = document.getElementById('downPaymentRange');
+    const interestRate = document.getElementById('interestRate');
+    const interestRateRange = document.getElementById('interestRateRange');
+    const loanTerm = document.getElementById('loanTerm');
+    const loanTermRange = document.getElementById('loanTermRange');
+    
+    // Get result elements
+    const monthlyPayment = document.getElementById('monthlyPayment');
+    const totalLoan = document.getElementById('totalLoan');
+    const totalInterest = document.getElementById('totalInterest');
+    const totalCost = document.getElementById('totalCost');
+    
+    // Sync number inputs with range inputs
+    function syncInputs(input, range) {
+        input.addEventListener('input', function() {
+            range.value = this.value;
+            calculateLoan();
+        });
+        
+        range.addEventListener('input', function() {
+            input.value = this.value;
+            calculateLoan();
+        });
+    }
+    
+    syncInputs(vehiclePrice, vehiclePriceRange);
+    syncInputs(downPayment, downPaymentRange);
+    syncInputs(interestRate, interestRateRange);
+    syncInputs(loanTerm, loanTermRange);
+    
+    // Calculate loan
+    function calculateLoan() {
+        const principal = vehiclePrice.value - downPayment.value;
+        const monthlyRate = (interestRate.value / 100) / 12;
+        const numberOfPayments = loanTerm.value * 12;
+        
+        // Calculate monthly payment
+        const monthly = principal * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments) / 
+                       (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+        
+        // Calculate totals
+        const totalAmount = monthly * numberOfPayments;
+        const interestAmount = totalAmount - principal;
+        
+        // Update display
+        monthlyPayment.textContent = `$${monthly.toFixed(2)}`;
+        totalLoan.textContent = `$${principal.toFixed(2)}`;
+        totalInterest.textContent = `$${interestAmount.toFixed(2)}`;
+        totalCost.textContent = `$${totalAmount.toFixed(2)}`;
+    }
+    
+    // Reset calculator
+    document.getElementById('resetCalculator').addEventListener('click', function() {
+        vehiclePrice.value = 30000;
+        vehiclePriceRange.value = 30000;
+        downPayment.value = 5000;
+        downPaymentRange.value = 5000;
+        interestRate.value = 4.5;
+        interestRateRange.value = 4.5;
+        loanTerm.value = 5;
+        loanTermRange.value = 5;
+        calculateLoan();
+    });
+    
+    // Initial calculation
+    calculateLoan();
+});
+</script>

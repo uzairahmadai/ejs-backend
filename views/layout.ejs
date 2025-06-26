@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/fav.svg" />
+    <title>AutoVault - Car Dealer HTML Template</title>
+    <meta name="description" content="Your trusted source for expert healthcare services and car information. Providing personalized care, advanced treatments, and reliable car dealing to help you achieve better health." />
+    <link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/plugins/plugins.css" />
+    <link rel="stylesheet" href="/assets/css/plugins/magnifying-popup.css" />
+    <link rel="stylesheet" href="/assets/fonts/rt-icon.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <div class="search-input-area">
+        <div class="container">
+            <div class="search-input-inner">
+                <div class="input-div">
+                    <input class="search-input autocomplete" type="text" placeholder="Search by keyword or #" />
+                    <button><i class="far fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="close" class="search-close-icon"><i class="far fa-times"></i></div>
+    </div>
+    <div id="anywhere-home"></div>
+    <!-- progress area start -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
+    <!-- progress area end -->
+    <div class="rts-wrapper">
+        <%- include('partials/header') %>
+        <div class="rts-wrapper-inner">
+            <%- body %>
+        </div>
+        <%- include('partials/footer') %>
+    </div>
+    
+    <!-- Mobile Menu Area (from original HTML) -->
+    <div id="side-bar" class="side-bar header-two">
+        <button class="close-icon-menu">X</button>
+        <div class="mobile-menu-main">
+            <nav class="nav-main mainmenu-nav mt--30">
+                <ul class="mainmenu metismenu" id="mobile-menu-active">
+                    <li><a href="/" class="main">Home</a></li>
+                    <li><a href="/about" class="main">About</a></li>
+                    <li><a href="/portfolio" class="main">Cars</a></li>
+                    <li class="has-droupdown">
+                        <a href="#" class="main">Pages</a>
+                        <ul class="submenu mm-collapse">
+                            <li><a href="/service">Service</a></li>
+                            <li><a href="/faq">FAQ</a></li>
+                            <li><a href="/sold-car">Sold Car</a></li>
+                            <li><a href="/calculator">Calculator</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                            <li><a href="/team">Team</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/contact" class="main">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="rts-social-style-one pl--20 mt--50">
+                <ul>
+                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/js/plugins/jquery.js"></script>
+    <script src="/assets/js/plugins/jquery-ui.js"></script>
+    <script src="/assets/js/vendor/bootstrap.min.js"></script>
+    <script src="/assets/js/plugins/swiper.js"></script>
+    <script src="/assets/js/vendor/jarallax.js"></script>
+    <script src="/assets/js/vendor/waw.js"></script>
+    <script src="/assets/js/plugins/counter-up.js"></script>
+    <script src="/assets/js/plugins/contact-form.js"></script>
+    <script src="/assets/js/plugins/metismenu.js"></script>
+    <script src="/assets/js/plugins/smooth-scroll.js"></script>
+    <script src="/assets/js/plugins/magnifying-popup.js"></script>
+    <script src="/assets/js/vendor/waypoint.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,485 @@
+<%- include('partials/header') %>
+
+<!-- Breadcrumb area start -->
+<div class="rts-breadcrumb-area portfolio-3 jarallax">
+    <div class="container">
+        <div class="breadcrumb-area-wrapper">
+            <h1 class="title">Cars</h1>
+            <div class="nav-bread-crumb">
+                <a href="/">Home</a>
+                <a href="#" class="current">Cars</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb area end -->
+
+<div class="rts-portfolio-area inner rts-section-gapNew">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <div class="sticky-top">
+                    <div class="left-side-bar">
+                        <div class="filter-header">
+                            <h2>Filters</h2>
+                            <a href="/cars" class="clear-filters">Clear All</a>
+                        </div>
+                        
+                        <div class="search-area side-box">
+                            <h2>Cars Search</h2>
+                            <form id="searchForm">
+                                <div class="input-wrapper">
+                                    <input type="text" name="search" placeholder="Search Vehicles" value="<%= query.search || '' %>">
+                                    <button type="submit"><i class="fa-regular fa-magnifying-glass"></i></button>
+                                </div>
+                            </form>
+                            <span class="cross"><i class="fa-light fa-xmark"></i></span>
+                        </div>
+                        
+                        <div class="car-make side-box">
+                            <h2>Car Make</h2>
+                            <ul class="checkbox-list">
+                                <% const selectedMakes = query.make ? (Array.isArray(query.make) ? query.make : [query.make]) : []; %>
+                                <% makes.forEach(make => { %>
+                                    <li class="checkbox-item">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="make" value="<%= make %>" 
+                                                <%= selectedMakes.includes(make) ? 'checked' : '' %>>
+                                            <span><%= make %></span>
+                                        </label>
+                                        <span class="count">(<%= makeCounts[make] || 0 %>)</span>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                            <span class="cross"><i class="fa-light fa-xmark"></i></span>
+                        </div>
+                        
+                        <div class="car-make side-box">
+                            <h2>Car Model</h2>
+                            <ul class="checkbox-list">
+                                <% const selectedModels = query.model ? (Array.isArray(query.model) ? query.model : [query.model]) : []; %>
+                                <% models.forEach(model => { %>
+                                    <li class="checkbox-item">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="model" value="<%= model %>" 
+                                                <%= selectedModels.includes(model) ? 'checked' : '' %>>
+                                            <span><%= model %></span>
+                                        </label>
+                                        <span class="count">(<%= modelCounts[model] || 0 %>)</span>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                            <span class="cross"><i class="fa-light fa-xmark"></i></span>
+                        </div>
+                        
+                        <div class="price-box side-box">
+                            <h2>Price</h2>
+                            <div class="slider-container">
+                                <div class="histogram">
+                                    <% for(let i = 0; i < 25; i++) { %>
+                                        <% const barHeight = Math.random() * 50 + 50; %>
+                                        <div class="histogram-bar" style="height: <%= barHeight %>px;"></div>
+                                    <% } %>
+                                </div>
+                                <div class="range-slider">
+                                    <div class="track"></div>
+                                    <div class="range" id="range"></div>
+                                    <input type="range" id="minRange" min="<%= priceRange.min %>" max="<%= priceRange.max %>" 
+                                        value="<%= query.minPrice || priceRange.min %>">
+                                    <input type="range" id="maxRange" min="<%= priceRange.min %>" max="<%= priceRange.max %>" 
+                                        value="<%= query.maxPrice || priceRange.max %>">
+                                </div>
+                                <div class="price-labels">
+                                    <span id="minPrice">$<%= query.minPrice ? Number(query.minPrice).toLocaleString() : priceRange.min.toLocaleString() %></span>
+                                    <span id="maxPrice">$<%= query.maxPrice ? Number(query.maxPrice).toLocaleString() : priceRange.max.toLocaleString() %></span>
+                                </div>
+                            </div>
+                            <span class="cross"><i class="fa-light fa-xmark"></i></span>
+                        </div>
+                        
+                        <div class="car-make side-box">
+                            <h2>Car Seats</h2>
+                            <ul class="checkbox-list">
+                              <% const selectedSeats = query.seats ? (Array.isArray(query.seats) ? query.seats.map(Number) : [Number(query.seats)]) : []; %>
+                                <% seats.forEach(seat => { %>
+                                    <li class="checkbox-item">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="seats" value="<%= seat %>" 
+                                                <%= selectedSeats.includes(seat) ? 'checked' : '' %>>
+                                            <span><%= seat %> seats</span>
+                                        </label>
+                                        <span class="count">(<%= seatCounts[seat] || 0 %>)</span>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                            <span class="cross"><i class="fa-light fa-xmark"></i></span>
+                        </div>
+                        
+                        <div class="car-make side-box">
+                            <h2>Car Color</h2>
+                            <ul class="checkbox-list">
+                                <% const selectedColors = query.color ? (Array.isArray(query.color) ? query.color : [query.color]) : []; %>
+                                <% colors.forEach(color => { %>
+                                    <li class="checkbox-item">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="color" value="<%= color %>" 
+                                                <%= selectedColors.includes(color) ? 'checked' : '' %>>
+                                            <span><%= color %></span>
+                                        </label>
+                                        <span class="count">(<%= colorCounts[color] || 0 %>)</span>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                            <span class="cross"><i class="fa-light fa-xmark"></i></span>
+                        </div>
+                        
+                        <div class="tag-area side-box">
+                            <h2>Fuel</h2>
+                            <ul>
+                                <% const selectedFuelTypes = query.fuelType ? (Array.isArray(query.fuelType) ? query.fuelType : [query.fuelType]) : []; %>
+                                <% fuelTypes.forEach(fuel => { %>
+                                    <li>
+                                        <input type="checkbox" id="fuel-<%= fuel.toLowerCase().replace(' ', '-') %>" 
+                                            name="fuelType" value="<%= fuel %>" 
+                                            <%= selectedFuelTypes.includes(fuel) ? 'checked' : '' %>>
+                                        <label for="fuel-<%= fuel.toLowerCase().replace(' ', '-') %>">
+                                            <%= fuel %> <span class="count">(<%= fuelTypeCounts[fuel] || 0 %>)</span>
+                                        </label>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                            <span class="cross"><i class="fa-light fa-xmark"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-8">
+                <div class="right" id="carsContainer">
+                    <% if (cars.length === 0) { %>
+                        <div class="alert alert-info">No cars found matching your criteria.</div>
+                    <% } else { %>
+                        <% cars.forEach(car => { %>
+                            <div class="project-wrapper2 list-style mb--30">
+                    <div class="image-area">
+                                    <a href="/cars/<%= car.slug %>">
+                                        <img src="<%= car.images[0] || '/assets/images/default-car.jpg' %>" height="206" alt="<%= car.make %> <%= car.model %>">
+                                    </a>
+                                </div>
+                                <div class="content-area">
+                                    <h6 class="title"><a href="/cars/<%= car.slug %>"><%= car.make %> <%= car.model %></a></h6>
+                                    <ul class="feature-area">
+                                        <li>
+                                            <img src="/assets/images/portfolio/feature-icon/01.svg" alt="">
+                                            <%= car.mileage.toLocaleString() %> Miles
+                                        </li>
+                                        <li>
+                                            <img src="/assets/images/portfolio/feature-icon/02.svg" alt="">
+                                            <%= car.fuelType %>
+                                        </li>
+                                        <li>
+                                            <img src="/assets/images/portfolio/feature-icon/03.svg" alt="">
+                                            <%= car.transmission %>
+                                        </li>
+                                    </ul>
+                                    <div class="button-area">
+                                        <p class="cw">$<%= car.price.toLocaleString() %></p>
+                                        <a href="/cars/<%= car.slug %>" class="rts-btn btn-primary radius-small">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }); %>
+                        
+                        <% if (hasMore) { %>
+                            <a href="#" class="rts-btn load-more-btn btn-border" id="loadMore">Load More</a>
+                        <% } %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="rts-cta-area area-2">
+    <div class="container">
+        <div class="cta-inner">
+            <h2 class="title">If you have any questions Please Call.</h2>
+            <div class="contact">
+                <a href="tel:+16544521505">
+                    <img src="/assets/images/cta/call.svg" alt="">
+                    +1-654-452-1505
+                </a>
+            </div>
+            <img class="shape one" src="/assets/images/cta/round.svg" alt="">
+            <img class="shape two" src="/assets/images/cta/line.svg" alt="">
+        </div>
+    </div>
+</div>
+
+<script>
+    // Pass EJS variables to JS
+    window.hasMore = <%= hasMore %>;
+    
+    // Price range slider functionality
+    const minRange = document.getElementById('minRange');
+    const maxRange = document.getElementById('maxRange');
+    const range = document.getElementById('range');
+    const minPrice = document.getElementById('minPrice');
+    const maxPrice = document.getElementById('maxPrice');
+    const form = document.getElementById('searchForm');
+    const carsContainer = document.getElementById('carsContainer');
+    let isLoading = false;
+    let currentPage = 1;
+
+    // Initialize range slider
+    function updateRange() {
+        const minValue = parseInt(minRange.value);
+        const maxValue = parseInt(maxRange.value);
+        
+        range.style.left = `${((minValue - minRange.min) / (minRange.max - minRange.min)) * 100}%`;
+        range.style.right = `${100 - ((maxValue - minRange.min) / (minRange.max - minRange.min)) * 100}%`;
+        
+        minPrice.textContent = `$${minValue.toLocaleString()}`;
+        maxPrice.textContent = `$${maxValue.toLocaleString()}`;
+    }
+
+    minRange.addEventListener('input', () => {
+        if (parseInt(minRange.value) > parseInt(maxRange.value)) {
+            minRange.value = maxRange.value;
+        }
+        updateRange();
+        applyFilters();
+    });
+
+    maxRange.addEventListener('input', () => {
+        if (parseInt(maxRange.value) < parseInt(minRange.value)) {
+            maxRange.value = minRange.value;
+        }
+        updateRange();
+        applyFilters();
+    });
+
+    // Filter change handlers
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', applyFilters);
+    });
+
+    // Form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        applyFilters();
+    });
+
+    // Clear filters
+    document.querySelector('.clear-filters').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = '/cars';
+    });
+
+    // Function to attach load more listener
+    function attachLoadMoreListener() {
+        const btn = document.getElementById('loadMore');
+        if (btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (!isLoading) loadMoreCars();
+            });
+        }
+    }
+
+    // Initial attachment of load more listener
+    attachLoadMoreListener();
+
+    // Apply filters without page reload
+    function applyFilters() {
+        currentPage = 1; // Reset to first page when filters change
+        
+        const formData = new FormData(form);
+        const params = new URLSearchParams();
+        
+        // Add all checkbox values
+        document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+            if (checkbox.name && checkbox.value) {
+                params.append(checkbox.name, checkbox.value);
+            }
+        });
+        
+        // Add price range
+        params.append('minPrice', minRange.value);
+        params.append('maxPrice', maxRange.value);
+        
+        // Add search term if exists
+        const searchTerm = formData.get('search');
+        if (searchTerm) {
+            params.append('search', searchTerm);
+        }
+        
+        // Update URL without reload
+        history.pushState({}, '', `/cars?${params.toString()}`);
+        
+        // Fetch filtered results
+        fetchFilteredCars(params.toString());
+    }
+
+    // Fetch filtered cars via AJAX
+    function fetchFilteredCars(queryString = '') {
+        isLoading = true;
+        if (carsContainer) {
+            carsContainer.innerHTML = '<div class="text-center py-5">Loading...</div>';
+        }
+        
+        fetch(`/cars/filter?${queryString}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.cars && data.cars.length > 0) {
+                    renderCars(data.cars);
+                    updateFilterCounts(data.counts);
+                    currentPage = 1;
+                } else {
+                    carsContainer.innerHTML = '<div class="alert alert-info">No cars found matching your criteria.</div>';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                carsContainer.innerHTML = '<div class="alert alert-danger">Error loading cars. Please try again.</div>';
+            })
+            .finally(() => {
+                isLoading = false;
+            });
+    }
+
+    // Load more cars
+    function loadMoreCars() {
+        isLoading = true;
+        const loadMoreBtn = document.getElementById('loadMore');
+        if (loadMoreBtn) {
+            loadMoreBtn.textContent = 'Loading...';
+            loadMoreBtn.disabled = true;
+        }
+        
+        const params = new URLSearchParams(window.location.search);
+        params.append('page', currentPage + 1);
+        
+        fetch(`/cars/filter?${params.toString()}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.cars && data.cars.length > 0) {
+                    renderCars(data.cars, true);
+                    currentPage++;
+                    if (!data.hasMore && loadMoreBtn) {
+                        loadMoreBtn.style.display = 'none';
+                    }
+                } else if (loadMoreBtn) {
+                    loadMoreBtn.style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                isLoading = false;
+                if (loadMoreBtn) {
+                    loadMoreBtn.textContent = 'Load More';
+                    loadMoreBtn.disabled = false;
+                }
+            });
+    }
+
+    // Render cars to the container
+    function renderCars(cars, append = false) {
+        let html = '';
+        
+        cars.forEach(car => {
+            html += `
+                <div class="project-wrapper2 list-style mb--30">
+                    <div class="image-area">
+                        <a href="/cars/${car.slug}">
+                            <img src="${car.images[0] || '/assets/images/default-car.jpg'}" height="206" alt="${car.make} ${car.model}">
+                        </a>
+                    </div>
+                    <div class="content-area">
+                        <h6 class="title"><a href="/cars/${car.slug}">${car.make} ${car.model}</a></h6>
+                        <ul class="feature-area">
+                            <li>
+                                <img src="/assets/images/portfolio/feature-icon/01.svg" alt="">
+                                ${car.mileage.toLocaleString()} Miles
+                            </li>
+                            <li>
+                                <img src="/assets/images/portfolio/feature-icon/02.svg" alt="">
+                                ${car.fuelType}
+                            </li>
+                            <li>
+                                <img src="/assets/images/portfolio/feature-icon/03.svg" alt="">
+                                ${car.transmission}
+                            </li>
+                        </ul>
+                        <div class="button-area">
+                            <p class="cw">$${car.price.toLocaleString()}</p>
+                            <a href="/cars/${car.slug}" class="rts-btn btn-primary radius-small">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        if (append) {
+            carsContainer.insertAdjacentHTML('beforeend', html);
+        } else {
+            carsContainer.innerHTML = html;
+            
+            if (cars.length > 0 && window.hasMore) {
+                carsContainer.insertAdjacentHTML('beforeend', 
+                    '<a href="#" class="rts-btn load-more-btn btn-border" id="loadMore">Load More</a>');
+                attachLoadMoreListener();
+            }
+        }
+    }
+
+    // Update filter counts
+    function updateFilterCounts(counts) {
+        // Update make counts
+        if (counts.make) {
+            Object.entries(counts.make).forEach(([make, count]) => {
+                const element = document.querySelector(`input[name="make"][value="${make}"]`)?.closest('.checkbox-item')?.querySelector('.count');
+                if (element) element.textContent = `(${count})`;
+            });
+        }
+        
+        // Update model counts
+        if (counts.model) {
+            Object.entries(counts.model).forEach(([model, count]) => {
+                const element = document.querySelector(`input[name="model"][value="${model}"]`)?.closest('.checkbox-item')?.querySelector('.count');
+                if (element) element.textContent = `(${count})`;
+            });
+        }
+        
+        // Update seat counts
+        if (counts.seats) {
+            Object.entries(counts.seats).forEach(([seat, count]) => {
+                const element = document.querySelector(`input[name="seats"][value="${seat}"]`)?.closest('.checkbox-item')?.querySelector('.count');
+                if (element) element.textContent = `(${count})`;
+            });
+        }
+        
+        // Update color counts
+        if (counts.color) {
+            Object.entries(counts.color).forEach(([color, count]) => {
+                const element = document.querySelector(`input[name="color"][value="${color}"]`)?.closest('.checkbox-item')?.querySelector('.count');
+                if (element) element.textContent = `(${count})`;
+            });
+        }
+        
+        // Update fuel type counts
+        if (counts.fuelType) {
+            Object.entries(counts.fuelType).forEach(([fuel, count]) => {
+                const element = document.querySelector(`input[name="fuelType"][value="${fuel}"]`)?.closest('li')?.querySelector('.count');
+                if (element) element.textContent = `(${count})`;
+            });
+        }
+    }
+
+    // Initialize
+    updateRange();
+</script>
+
+<%- include('partials/footer') %>

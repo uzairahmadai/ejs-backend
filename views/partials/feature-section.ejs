@@ -1,0 +1,41 @@
+<!-- Feature Section Start -->
+<section class="rts-feature-area rts-section-gap">
+    <div class="container">
+        <div class="section-title-area2">
+            <p class="sub-title wow fadeInUp" data-wow-delay=".1s" data-wow-duration=".8s">Featured Car</p>
+            <h2 class="section-title wow move-right">Our Featured <span>Car</span></h2>
+        </div>
+
+        <div class="slider-area mt--80 wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+            <div class="swiper featureSlider">
+                <div class="swiper-wrapper">
+                    <% featuredCars.forEach(function(car) { %>
+                        <div class="swiper-slide">
+                            <div class="feature-wrapper">
+                                <div class="image-area">
+                                    <img src="<%= car.image %>" width="961" alt="<%= car.title %>">
+                                </div>
+                                <div class="content-area">
+                                    <span class="dot"></span>
+                                    <h6 class="title"><a href="/portfolio-details"><%= car.title %></a></h6>
+                                    <ul class="feature-area">
+                                        <% car.features.forEach(function(feature) { %>
+                                            <li>
+                                                <img src="<%= feature.icon %>" alt="">
+                                                <%= feature.text %>
+                                            </li>
+                                        <% }) %>
+                                    </ul>
+                                    <a href="/portfolio-details" class="rts-btn radius-big">View Details</a>
+                                </div>
+                                <img src="/assets/images/feature/round-shape.svg" alt="" class="shape">
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+                <div class="swiper-pagination-3"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Feature Section End -->

@@ -1,0 +1,34 @@
+<!-- Category Area Start -->
+<section class="rts-category-area rts-section-gap">
+    <div class="container">
+        <div class="section-title-area">
+            <p class="sub-title wow fadeInUp" data-wow-delay=".1s" data-wow-duration=".8s">Car Category</p>
+            <h2 class="section-title wow move-right">Browse By <span>Car</span> Type</h2>
+        </div>
+
+        <div class="section-inner wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+            <div class="swiper category-slider">
+                <div class="swiper-wrapper">
+                    <% categories.forEach(function(category) { %>
+                        <div class="swiper-slide">
+                            <div class="category-wrapper">
+                                <div class="icon">
+                                    <img src="<%= category.icon %>" alt="<%= category.title %> Icon">
+                                </div>
+                                <h6 class="title"><a href="#"><%= category.title %></a></h6>
+                                <p class="desc"><%= category.count %>+ Car</p>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-shape-area">
+        <img src="/assets/images/category/shape/shape-01.svg" alt="Background Shape 1">
+        <img src="/assets/images/category/shape/shape-02.svg" alt="Background Shape 2">
+    </div>
+</section>
+<!-- Category Area End -->

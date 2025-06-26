@@ -1,0 +1,185 @@
+<!-- Breadcrumb Area Start -->
+<div class="rts-breadcrumb-area breadcrumb-bg">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="breadcrumb-content">
+                    <h3 class="title">Contact Us</h3>
+                    <p class="desc">Get in touch with our expert team</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Area End -->
+
+<!-- Contact Information Section Start -->
+<div class="rts-contact-area rts-section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-inner">
+                    <div class="row g-5">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="single-contact-one-inner">
+                                <div class="thumbnail">
+                                    <img src="/assets/images/contact/01.svg" alt="Phone Icon">
+                                </div>
+                                <div class="content">
+                                    <div class="info">
+                                        <span>Call Us 24/7</span>
+                                        <a href="tel:+12505550199">+12505550199</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="single-contact-one-inner">
+                                <div class="thumbnail">
+                                    <img src="/assets/images/contact/02.svg" alt="Email Icon">
+                                </div>
+                                <div class="content">
+                                    <div class="info">
+                                        <span>Email Us</span>
+                                        <a href="mailto:autovault@gmail.com">autovault@gmail.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="single-contact-one-inner">
+                                <div class="thumbnail">
+                                    <img src="/assets/images/contact/03.svg" alt="Location Icon">
+                                </div>
+                                <div class="content">
+                                    <div class="info">
+                                        <span>Visit Us</span>
+                                        <a href="#">280 Augusta Avenue, Toronto</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Information Section End -->
+
+<!-- Contact Form Section Start -->
+<div class="rts-contact-form-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-form-wrapper">
+                    <div class="row">
+                        <!-- Contact Form -->
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="contact-form">
+                                <h4 class="title">Send Us a Message</h4>
+                                <form id="contactForm" action="/api/contact" method="POST">
+                                    <div class="form-group">
+                                        <input type="text" name="name" placeholder="Your Name *" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email" placeholder="Your Email *" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="subject" placeholder="Subject">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="message" placeholder="Your Message *" required></textarea>
+                                    </div>
+                                    <button type="submit" class="rts-btn btn-primary radius-small">Send Message</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Map -->
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="contact-map">
+                                <h4 class="title">Find Us on Map</h4>
+                                <div class="map-wrapper">
+                                    <iframe 
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.6893339480735!2d-79.40433492346979!3d43.65338905050436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34c24a5edc8f%3A0x87f43bc0213d7a!2s280%20Augusta%20Ave%2C%20Toronto%2C%20ON%20M5T%202L9!5e0!3m2!1sen!2sca!4v1690144體育館"
+                                        width="100%" 
+                                        height="450" 
+                                        style="border:0;" 
+                                        allowfullscreen="" 
+                                        loading="lazy" 
+                                        referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Form Section End -->
+
+<!-- Business Hours Section Start -->
+<div class="rts-business-hours rts-section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="business-hours-wrapper">
+                    <h4 class="title">Business Hours</h4>
+                    <div class="hours-list">
+                        <div class="single-hour">
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="single-hour">
+                            <span class="day">Saturday</span>
+                            <span class="time">10:00 AM - 4:00 PM</span>
+                        </div>
+                        <div class="single-hour">
+                            <span class="day">Sunday</span>
+                            <span class="time">Closed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Business Hours Section End -->
+
+<!-- Custom JavaScript for Contact Form -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+        
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                alert('Thank you for your message. We will get back to you soon!');
+                contactForm.reset();
+            } else {
+                alert('There was an error sending your message. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error sending your message. Please try again.');
+        });
+    });
+});
+</script>

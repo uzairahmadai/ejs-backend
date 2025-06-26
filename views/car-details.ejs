@@ -1,0 +1,445 @@
+<%- include('partials/header') %>
+
+<!-- rts breadcrumb area start -->
+<div class="rts-breadcrumb-area portfolio-details2 jarallax">
+    <div class="container">
+        <div class="breadcrumb-area-wrapper">
+            <div class="left">
+                <div class="nav-bread-crumb">
+                    <a href="/">Home</a>
+                    <a href="/cars">Cars</a>
+                    <a href="#" class="current"><%= car.make %> <%= car.model %></a>
+                </div>
+                <h1 class="title"><%= car.make %> <%= car.model %></h1>
+                <ul class="feature-area">
+                    <li>
+                        <img src="/assets/images/portfolio/feature-icon/10.svg" alt="">
+                        <%= car.mileage.toLocaleString() %> Miles
+                    </li>
+                    <li>
+                        <img src="/assets/images/portfolio/feature-icon/11.svg" alt="">
+                        <%= car.fuelType %>
+                    </li>
+                    <li>
+                        <img src="/assets/images/portfolio/feature-icon/12.svg" alt="">
+                        <%= car.transmission %>
+                    </li>
+                    <li>
+                        <img src="/assets/images/portfolio/feature-icon/13.svg" alt="">
+                        <%= car.seats %> Person
+                    </li>
+                </ul>
+            </div>
+            <div class="price-area">
+                <h5>$<%= car.price.toLocaleString() %></h5>
+                <ul class="price-meta">
+                    <li><img src="/assets/images/portfolio/calender.svg" alt=""> <%= car.createdAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) %></li>
+                    <li><img src="/assets/images/portfolio/view.svg" alt=""> <%= car.views || 0 %> Views</li>
+                    <li><img src="/assets/images/portfolio/heart.svg" alt=""> <%= car.favorites || 0 %> Favorites</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- rts breadcrumb area end -->
+
+<div class="rts-portfolio-area inner">
+    <div class="container">
+        <div class="portfolio-slider-area2 details mb--40">
+            <div class="swiper projectSlider4">
+                <div class="swiper-wrapper">
+                    <% car.images.forEach(image => { %>
+                        <div class="swiper-slide">
+                            <div class="image"><img src="<%= image %>" alt="<%= car.make %> <%= car.model %>"></div>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+            <div class="slider-pagination-area">
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="portfolio-details-area">
+                    <h2 class="mb--30">Car Description</h2>
+                    <p class="mb--30"><%= car.description %></p>
+                    
+                    <% if (car.features && car.features.length > 0) { %>
+                        <h2 class="mb--30">Car Features</h2>
+                        <ul class="feature-list mb--40">
+                            <% car.features.forEach(feature => { %>
+                                <li>
+                                    <i class="fa-regular fa-circle-check"></i> <%= feature %>
+                                </li>
+                            <% }); %>
+                        </ul>
+                    <% } %>
+                    
+                    <h2 class="mb--30">Key Specs</h2>
+                    <ul class="specs-list mb--40">
+                        <li>
+                            <span class="number">1</span>
+                            <div class="text">
+                                <h6>Car Transmission</h6>
+                                <p><%= car.transmission %></p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="number">2</span>
+                            <div class="text">
+                                <h6>Engine</h6>
+                                <p><%= car.engine %></p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="number">3</span>
+                            <div class="text">
+                                <h6>Horsepower</h6>
+                                <p><%= car.horsepower || 'N/A' %></p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="number">4</span>
+                            <div class="text">
+                                <h6>Drive Type</h6>
+                                <p><%= car.driveType || 'N/A' %></p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="number">5</span>
+                            <div class="text">
+                                <h6>Fuel Economy</h6>
+                                <p><%= car.fuelEconomy || 'N/A' %></p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="number">6</span>
+                            <div class="text">
+                                <h6>Warranty</h6>
+                                <p><%= car.warranty || 'N/A' %></p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <% if (car.video) { %>
+                        <h2 class="mb--30">Video</h2>
+                        <!-- Video Area Start -->
+                        <div class="rts-video-area video-2 bg-video-five bg_image jarallax mb--40">
+                            <video muted loop id="myVideo">
+                                <source src="<%= car.video %>">
+                            </video>
+                            <div class="content">
+                                <div id="myBtn">
+                                    <img src="/assets/images/video/round-text.svg" alt="">
+                                    <img src="/assets/images/video/play.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Video Area End -->
+                    <% } %>
+                    
+                    <h2 class="mb--30">Car Engine</h2>
+                    <ul class="feature-list2 mb--40">
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            <div class="text">
+                                <p>Displacement</p>
+                                <p><%= car.engineDisplacement || 'N/A' %></p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            <div class="text">
+                                <p>Torque</p>
+                                <p><%= car.torque || 'N/A' %></p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            <div class="text">
+                                <p>Horsepower</p>
+                                <p><%= car.horsepower || 'N/A' %></p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            <div class="text">
+                                <p>Number of cylinders</p>
+                                <p><%= car.cylinders || 'N/A' %></p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            <div class="text">
+                                <p>Engine Layout</p>
+                                <p><%= car.engineLayout || 'N/A' %></p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-regular fa-circle-check"></i>
+                            <div class="text">
+                                <p>Engine Configurations</p>
+                                <p><%= car.engineConfig || 'N/A' %></p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <form action="/inquiry" method="POST" class="message-form mb--100">
+                        <input type="hidden" name="carId" value="<%= car._id %>">
+                        <input type="hidden" name="carName" value="<%= car.make %> <%= car.model %>">
+                        <h2>Send Message</h2>
+                        <div class="form-inner">
+                            <div class="input-wrapper">
+                                <input type="text" name="name" placeholder="Your Name" required>
+                                <input type="email" name="email" placeholder="Your Email*" required>
+                                <input type="text" name="phone" placeholder="Phone" required>
+                            </div>
+                            <textarea name="message" id="message" placeholder="Type a message*" required></textarea>
+                            <div class="form-bottom">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" required />
+                                    <span>I accept The <a href="/privacy-policy">Privacy Policy</a></span>
+                                </label>
+                                <button class="rts-btn btn-primary radius-small" type="submit">
+                                    <img src="/assets/images/portfolio/send.svg" alt="">Submit Message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <% if (relatedCars && relatedCars.length > 0) { %>
+                        <div class="related-project">
+                            <h3 class="mb--40 text-center">Related listings</h3>
+                            <div class="row">
+                                <% relatedCars.forEach(car => { %>
+                                    <div class="col-lg-6">
+                                        <div class="project-wrapper2">
+                                            <div class="image-area">
+                                                <a href="/cars/<%= car.slug %>"><img src="<%= car.images[0] %>" alt="<%= car.make %> <%= car.model %>"></a>
+                                                <span class="tag"><%= car.status || 'Available' %></span>
+                                                <a href="/wishlist/add/<%= car._id %>" class="wishlist">
+                                                    <i class="fa-regular fa-heart"></i>
+                                                </a>
+                                                <a href="<%= car.images[0] %>" class="gallery-image">
+                                                    <img src="/assets/images/icon/image.svg" alt="">
+                                                    <%= car.images.length %>
+                                                </a>
+                                            </div>
+                                            <span class="price">$<%= car.price.toLocaleString() %></span>
+                                            <div class="content-area">
+                                                <h6 class="title"><a href="/cars/<%= car.slug %>"><%= car.make %> <%= car.model %></a></h6>
+                                                <ul class="feature-area">
+                                                    <li>
+                                                        <img src="/assets/images/portfolio/feature-icon/01.svg" alt="">
+                                                        <%= car.mileage.toLocaleString() %> Miles
+                                                    </li>
+                                                    <li>
+                                                        <img src="/assets/images/portfolio/feature-icon/02.svg" alt="">
+                                                        <%= car.fuelType %>
+                                                    </li>
+                                                    <li>
+                                                        <img src="/assets/images/portfolio/feature-icon/03.svg" alt="">
+                                                        <%= car.transmission %>
+                                                    </li>
+                                                </ul>
+                                                <div class="button-area">
+                                                    <p>$<%= car.price.toLocaleString() %></p>
+                                                    <a href="/cars/<%= car.slug %>" class="rts-btn btn-primary radius-small">View Details</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }); %>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="sticky-top">
+                    <div class="left-side-bar">
+                        <div class="overview side-box">
+                            <h2>Car Overview</h2>
+                            <ul class="feature-list2 mb--40">
+                                <li>
+                                    <img src="/assets/images/portfolio/feature-icon/09.svg" alt="">
+                                    <div class="text">
+                                        <p>Car Type</p>
+                                        <p><%= car.make %></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="/assets/images/portfolio/feature-icon/10.svg" alt="">
+                                    <div class="text">
+                                        <p>Mileage</p>
+                                        <p><%= car.mileage.toLocaleString() %> Miles</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="/assets/images/portfolio/feature-icon/11.svg" alt="">
+                                    <div class="text">
+                                        <p>Fuel Type</p>
+                                        <p><%= car.fuelType %></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="/assets/images/portfolio/feature-icon/12.svg" alt="">
+                                    <div class="text">
+                                        <p>Transmission</p>
+                                        <p><%= car.transmission %></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="/assets/images/portfolio/feature-icon/13.svg" alt="">
+                                    <div class="text">
+                                        <p>Person</p>
+                                        <p><%= car.seats %> Person</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="/assets/images/portfolio/feature-icon/14.svg" alt="">
+                                    <div class="text">
+                                        <p>Drive Type</p>
+                                        <p><%= car.driveType || 'N/A' %></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="/assets/images/portfolio/feature-icon/15.svg" alt="">
+                                    <div class="text">
+                                        <p>Engine</p>
+                                        <p><%= car.engine %></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="/assets/images/portfolio/feature-icon/16.svg" alt="">
+                                    <div class="text">
+                                        <p>Color</p>
+                                        <p><%= car.color %></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="map-area side-box">
+                            <h2>Location</h2>
+                            <div class="contact-map-area-fluid">
+                                <iframe class="contact-map" height="250" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14602.288851207937!2d90.47855065!3d23.798243149999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1663151706353!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                        
+                        <div class="contact side-box">
+                            <h2>Contacts</h2>
+                            <div class="contact-inner">
+                                <div class="author-img">
+                                    <img src="<%= car.dealer.avatar || '/assets/images/portfolio/author.webp' %>" alt="<%= car.dealer.name %>">
+                                </div>
+                                <h5><%= car.dealer.name %></h5>
+                                <p>Car Dealer</p>
+                                <div class="contact-button-area">
+                                    <a href="https://wa.me/<%= car.dealer.phone %>" class="rts-btn radius-small whatsapp">
+                                        <img src="/assets/images/portfolio/whatsapp.svg" alt=""> <%= car.dealer.phone %>
+                                    </a>
+                                    <a href="tel:<%= car.dealer.phone %>" class="rts-btn radius-small btn-primary phone">
+                                        <img src="/assets/images/portfolio/phone.svg" alt=""> <%= car.dealer.phone %>
+                                    </a>
+                                    <a href="#message-form" class="rts-btn radius-small telegram">
+                                        <img src="/assets/images/portfolio/send.svg" alt=""> Send Message
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-area side-box">
+                            <h2>Share</h2>
+                            <ul>
+                                <li>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURIComponent('https://yourdomain.com/car/' + car.slug) %>" target="_blank">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/intent/tweet?url=<%= encodeURIComponent('https://yourdomain.com/car/' + car.slug) %>&text=Check%20out%20this%20<%= encodeURIComponent(car.make + ' ' + car.model) %>" target="_blank">
+                                        <i class="fa-brands fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" onclick="copyToClipboard('<%= 'https://yourdomain.com/car/' + car.slug %>')">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="rts-cta-area area-2">
+    <div class="container">
+        <div class="cta-inner">
+            <h2 class="title">If you have any questions Please Call.</h2>
+            <div class="contact">
+                <a href="tel:+16544521505">
+                    <img src="/assets/images/cta/call.svg" alt="">
+                    +1-654-452-1505
+                </a>
+            </div>
+            <img class="shape one" src="/assets/images/cta/round.svg" alt="">
+            <img class="shape two" src="/assets/images/cta/line.svg" alt="">
+        </div>
+    </div>
+</div>
+
+<script>
+    // Initialize Swiper for image gallery
+    const swiper = new Swiper('.projectSlider4', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+    // Video player functionality
+    const video = document.getElementById("myVideo");
+    const btn = document.getElementById("myBtn");
+    
+    if (video && btn) {
+        btn.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                btn.style.display = "none";
+            } else {
+                video.pause();
+                btn.style.display = "block";
+            }
+        });
+        
+        video.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                btn.style.display = "none";
+            } else {
+                video.pause();
+                btn.style.display = "block";
+            }
+        });
+    }
+
+    // Copy to clipboard function for sharing
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Link copied to clipboard!');
+        });
+        return false;
+    }
+</script>
+
+<%- include('partials/footer') %>

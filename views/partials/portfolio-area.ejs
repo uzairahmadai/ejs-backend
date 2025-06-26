@@ -1,0 +1,74 @@
+<!-- Portfolio Area Start -->
+<section class="rts-portfolio-area rts-section-gap">
+    <div class="section-title-area2">
+        <p class="sub-title wow fadeInUp" data-wow-delay=".1s" data-wow-duration=".8s">Select Car</p>
+        <h2 class="section-title wow move-right">Our Amazing <span>Car</span></h2>
+    </div>
+
+    <div class="tab-area">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <% Object.keys(portfolioTabs).forEach((key, index) => { %>
+                <li class="nav-item" role="presentation">
+                    <button 
+                        class="nav-link <%= index === 0 ? 'active' : '' %>" 
+                        id="<%= key %>-tab" 
+                        data-bs-toggle="tab" 
+                        data-bs-target="#<%= key %>" 
+                        type="button" role="tab" 
+                        aria-controls="<%= key %>" 
+                        aria-selected="<%= index === 0 %>">
+                        <%= key.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) %>
+                    </button>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+
+    <div class="section-inner mt--80 wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+        <div class="tab-content" id="myTabContent">
+            <% Object.entries(portfolioTabs).forEach(([tabId, cars], index) => { %>
+                <div 
+                    class="tab-pane fade <%= index === 0 ? 'show active' : '' %>" 
+                    id="<%= tabId %>" 
+                    role="tabpanel" 
+                    aria-labelledby="<%= tabId %>-tab">
+
+                    <div class="slider-area">
+                        <div class="swiper projectSlider">
+                            <div class="swiper-wrapper">
+                                <% cars.forEach(car => { %>
+                                    <div class="swiper-slide">
+                                        <div class="project-wrapper">
+                                            <div class="image-area">
+                                                <a href="/portfolio-details">
+                                                    <img src="<%= car.image %>" alt="<%= car.title %>">
+                                                </a>
+                                            </div>
+                                            <span class="price"><%= car.price %></span>
+                                            <div class="content-area">
+                                                <h5 class="title">
+                                                    <a href="/portfolio-details"><%= car.title %></a>
+                                                </h5>
+                                                <ul class="feature-area">
+                                                    <% car.features.forEach(f => { %>
+                                                        <li>
+                                                            <img src="<%= f.icon %>" alt="">
+                                                            <%= f.text %>
+                                                        </li>
+                                                    <% }) %>
+                                                </ul>
+                                                <a href="/portfolio-details" class="rts-btn btn-primary radius-big">View Details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }) %>
+                            </div>
+                            <div class="swiper-pagination-2"></div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
+<!-- Portfolio Area End -->

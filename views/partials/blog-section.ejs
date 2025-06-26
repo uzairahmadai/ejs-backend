@@ -1,0 +1,57 @@
+<!-- Blog Section Start -->
+<section class="rts-blog-area rts-section-gapTop">
+    <div class="container">
+        <div class="section-inner">
+            <div class="row align-items-center">
+                <!-- Left: Blog Intro -->
+                <div class="col-xl-4">
+                    <div class="left-side-content">
+                        <div class="section-title-area">
+                            <p class="sub-title wow fadeInUp" data-wow-delay=".1s" data-wow-duration=".8s">
+                                Latest Blog
+                            </p>
+                            <h2 class="section-title wow move-right">
+                                Our Latest <span>Blog</span>
+                            </h2>
+                        </div>
+                        <p class="desc wow fadeIn" data-wow-delay=".3s" data-wow-duration="1s">
+                            Welcome to Autovault where innovation drives every journey.
+                            Discover a range of designed to elevate your driving experience.
+                        </p>
+                        <a href="/blog" class="text-btn wow fadeIn" data-wow-delay=".5s" data-wow-duration="1s">
+                            Read All Blog
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Blog Cards -->
+                <div class="col-xl-8">
+                    <div class="right-side-blog wow fadeInRight" data-wow-delay=".6s" data-wow-duration="1s">
+                        <div class="row g-5">
+                            <% latestBlogs.forEach(function(blog) { %>
+                            <div class="col-lg-6">
+                                <div class="blog-wrapper">
+                                    <div class="image-area">
+                                        <a href="/blog/<%= blog.slug %>">
+                                            <img src="<%= blog.image %>" alt="<%= blog.title %>">
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <p class="blog-meta"><%= blog.date %></p>
+                                        <h6>
+                                            <a href="/blog/<%= blog.slug %>">
+                                                <%= blog.title %>
+                                            </a>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Section End -->

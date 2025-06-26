@@ -1,0 +1,129 @@
+{
+  "site": {
+    "name": "AutoVault",
+    "title": "AutoVault - Car Dealer HTML Template",
+    "description": "Your trusted source for expert healthcare services and car information. Providing personalized care, advanced treatments, and reliable car dealing to help you achieve better health.",
+    "contact": {
+      "phone": "+12505550199",
+      "email": "autovault@gmail.com",
+      "address": "280 Augusta Avenue, M5T 2L9 Toronto, Canada"
+    }
+  },
+  "cars": {
+    "featured": [
+      {
+        "name": "Thunderbolt Car",
+        "price": "14,000",
+        "image": "/assets/images/portfolio/01.webp",
+        "features": {
+          "mileage": "100 Miles",
+          "fuel": "Petrol",
+          "transmission": "Automatic"
+        }
+      },
+      {
+        "name": "Volvo. 1927",
+        "price": "14,300",
+        "image": "/assets/images/portfolio/02.webp",
+        "features": {
+          "mileage": "105 Miles",
+          "fuel": "Petrol",
+          "transmission": "Automatic"
+        }
+      },
+      {
+        "name": "Volkswagen. 1938",
+        "price": "14,500",
+        "image": "/assets/images/portfolio/03.webp",
+        "features": {
+          "mileage": "110 Miles",
+          "fuel": "Petrol",
+          "transmission": "Automatic"
+        }
+      }
+    ],
+    "categories": [
+      {
+        "name": "Hatchback",
+        "count": "30+ Car",
+        "icon": "/assets/images/category/01.svg"
+      },
+      {
+        "name": "Minivans",
+        "count": "20+ Car",
+        "icon": "/assets/images/category/02.svg"
+      },
+      {
+        "name": "Luxury Cars",
+        "count": "15+ Car",
+        "icon": "/assets/images/category/03.svg"
+      },
+      {
+        "name": "Sedans",
+        "count": "25+ Car",
+        "icon": "/assets/images/category/04.svg"
+      },
+      {
+        "name": "Convertible",
+        "count": "55+ Car",
+        "icon": "/assets/images/category/05.svg"
+      },
+      {
+        "name": "Sports Car",
+        "count": "35+ Car",
+        "icon": "/assets/images/category/06.svg"
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "name": "Sarah Martinez",
+      "role": "CEO of Apex Solutions",
+      "rating": 4.5,
+      "text": "Choosing Bokinn was one of the best decisions we've ever made. They have proven to be a reliable and innovative partner, always ready to tackle new challenges with and expertise.Their commitment to and delivering tailored."
+    },
+    {
+      "name": "Xavi Alonso",
+      "role": "CEO of Apex Solutions",
+      "rating": 4.5,
+      "text": "Choosing Bokinn was one of the best decisions we've ever made. They have proven to be a reliable and innovative partner, always ready to tackle new challenges with and expertise.Their commitment to and delivering tailored."
+    },
+    {
+      "name": "Jamal Musiala",
+      "role": "Founder of Apex Solutions",
+      "rating": 4.5,
+      "text": "Choosing Bokinn was one of the best decisions we've ever made. They have proven to be a reliable and innovative partner, always ready to tackle new challenges with and expertise.Their commitment to and delivering tailored."
+    }
+  ],
+  "brands": [
+    "/assets/images/brand/01-w.svg",
+    "/assets/images/brand/02.svg",
+    "/assets/images/brand/03.svg",
+    "/assets/images/brand/04.svg",
+    "/assets/images/brand/05.svg",
+    "/assets/images/brand/06.svg",
+    "/assets/images/brand/07.svg"
+  ],
+  "whyChooseUs": [
+    {
+      "title": "Competitive Pricing",
+      "description": "Whether you're looking for a brand-new model or a certified pre-owned vehicle, we have a diverse.",
+      "icon": "/assets/images/why-choose/icon-01.svg"
+    },
+    {
+      "title": "24 Hour Support",
+      "description": "Whether you're looking for a brand-new model or a certified pre-owned vehicle, we have a diverse.",
+      "icon": "/assets/images/why-choose/icon-02.svg"
+    },
+    {
+      "title": "GPS on Every Vehicle",
+      "description": "Whether you're looking for a brand-new model or a certified pre-owned vehicle, we have a diverse.",
+      "icon": "/assets/images/why-choose/icon-03.svg"
+    },
+    {
+      "title": "Expert Maintenance",
+      "description": "Whether you're looking for a brand-new model or a certified pre-owned vehicle, we have a diverse.",
+      "icon": "/assets/images/why-choose/icon-04.svg"
+    }
+  ]
+}
